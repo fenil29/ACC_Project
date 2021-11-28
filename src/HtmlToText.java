@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.safety.Whitelist;
 
 public class HtmlToText {
@@ -23,7 +24,8 @@ public class HtmlToText {
 	//  clean the given string and return it.
 	public static String cleanHtml(String htmlString) {
 		// Cleaning file using Jsoup		
-		return Jsoup.clean(htmlString, new Whitelist());
+		Document doc = Jsoup.parse( htmlString );
+		return doc.text();
 	}
 
 	//  return the list of all files of given folder
@@ -48,7 +50,7 @@ public class HtmlToText {
 	// write array content into the given file
 	public static void writeToFile(String fileName, String content) throws IOException {
 
-		FileWriter writer = new FileWriter("./clenedFile/" + fileName + ".txt");
+		FileWriter writer = new FileWriter("./cleanedFile/" + fileName.substring(0, fileName.lastIndexOf(".")) + ".txt");
 		writer.write(content);
 		writer.close();
 	}

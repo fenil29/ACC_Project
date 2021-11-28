@@ -68,6 +68,6 @@ public class WebCrawler {
 
 	public static void main(String[] args) throws Exception {
 		int crawlingDepth=1;
-		crawlWebsite("https://www.fenilkaneria.com",crawlingDepth);
+		crawlWebsite("https://www.geeksforgeeks.org/",crawlingDepth);
 	}
 }
