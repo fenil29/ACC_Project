@@ -24,7 +24,7 @@ public class WebCrawler {
 
 	}
 
-	public static void  crawlWebsite(String URL) throws Exception {
+	public static void  crawlWebsite(String URL,int crawlingDepth) throws Exception {
 		Set<String> visited = new HashSet<String>();
 		ArrayList<String> links = new ArrayList<String>();
 		ArrayList<Integer> depth = new ArrayList<Integer>();
@@ -32,7 +32,7 @@ public class WebCrawler {
 		depth.add(0);
 		int currnetDepth = 0;
 		for (int i = 0; i < links.size(); i++) {
-			if(depth.get(i)>1) {
+			if(depth.get(i)>crawlingDepth) {
 				break;
 			}
 			String link = links.get(i);
@@ -58,6 +58,7 @@ public class WebCrawler {
 	}
 
 	public static void main(String[] args) throws Exception {
-		crawlWebsite("https://www.fenilkaneria.com");
+		int crawlingDepth=1;
+		crawlWebsite("https://www.fenilkaneria.com",crawlingDepth);
 	}
 }
