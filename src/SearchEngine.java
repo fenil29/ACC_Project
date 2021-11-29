@@ -28,9 +28,9 @@ public class SearchEngine {
 		totalTime = endTime - startTime;
 			
 		// show alternate words if no matches are found
-		if(page_rank.size()==0) {	
-			//Suggestion.suggest(input);
-		}	
+		if(page_rank.size()==0)	
+			Suggestion.suggest(input);
+			
 		
 		// display the results according to their occurrences in file
 		else {
